@@ -1,1 +1,7 @@
 
+bdshare
+streamlit
+pandas
+datetime
+numpy
+ta
