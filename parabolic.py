@@ -77,8 +77,8 @@ def is_stockbee_momentum(df):
     df['volume_50ma'] = df['volume'].rolling(window=48).mean()
     pct_change = (pd.to_numeric(df['close'].iloc[-1]) - pd.to_numeric(df['close'].iloc[-2])) / pd.to_numeric(
         df['close'].iloc[-2])
-    vol_spike = pd.to_numeric(df['volume'].iloc[-1]) > 1.5 * pd.to_numeric(df['volume_50ma'].iloc[-1])
-    return pct_change > 0.04 and vol_spike
+    vol_spike = pd.to_numeric(df['volume'].iloc[-1]) < 1.5 * pd.to_numeric(df['volume_50ma'].iloc[-1])
+    return pct_change < 0.04 and vol_spike
 
 
 # --- Main Screening Loop ---
